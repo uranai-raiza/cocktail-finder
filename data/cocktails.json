@@ -173,6 +173,21 @@
     ]
   },
   {
+    "id": "vodka-coke",
+    "name": "ウォッカコーラ",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "cola"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "コーラ", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウォッカを注ぐ",
+      "コーラで満たし、軽くステアする"
+    ]
+  },
+  {
     "id": "cuba-libre",
     "name": "キューバリブレ",
     "base": "rum",

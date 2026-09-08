@@ -8,8 +8,15 @@ const cocktails = JSON.parse(
 );
 const validIds = new Set(INGREDIENTS.map((i) => i.id));
 
-test('26種類のカクテルが定義されている', () => {
-  assert.equal(cocktails.length, 26);
+test('27種類のカクテルが定義されている', () => {
+  assert.equal(cocktails.length, 27);
+});
+
+test('ウォッカコーラ(vodka+cola)が定義されている', () => {
+  const vodkaCoke = cocktails.find((c) => c.id === 'vodka-coke');
+  assert.ok(vodkaCoke, 'id: vodka-coke が見つからない');
+  assert.equal(vodkaCoke.name, 'ウォッカコーラ');
+  assert.deepEqual(vodkaCoke.requiredIngredients, ['vodka', 'cola']);
 });
 
 test('各カクテルは必須フィールドを持つ', () => {
