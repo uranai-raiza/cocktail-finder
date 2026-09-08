@@ -1,7 +1,19 @@
 :root {
-  color-scheme: light dark;
-  --gap: 1rem;
-  --border: #ccc;
+  color-scheme: light;
+  --pink: #f4c2cf;
+  --pink-deep: #e08fa2;
+  --lavender: #d9cdf0;
+  --lavender-deep: #b39ddb;
+  --gold: #d8b56c;
+  --bg: #fff8f4;
+  --card-bg: #ffffff;
+  --text: #5b4b4f;
+  --text-soft: #8a7a7e;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 10px 24px -8px rgba(224, 143, 162, 0.35);
+  --gap: 1.1rem;
 }
 
 * {
@@ -10,45 +22,154 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
-  line-height: 1.5;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(217, 205, 240, 0.5), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(244, 194, 207, 0.45), transparent 45%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Hiragino Kaku Gothic ProN', sans-serif;
+  line-height: 1.6;
 }
 
 header {
-  padding: 1rem;
+  padding: 2rem 1rem 1.25rem;
   text-align: center;
+}
+
+.header-icons {
+  font-size: 1.6rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.3rem;
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--pink-deep);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6);
+  position: relative;
+  display: inline-block;
+}
+
+header h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin: 0.4rem auto 0;
+  background: linear-gradient(90deg, var(--gold), var(--pink-deep));
+  border-radius: 999px;
+}
+
+header p {
+  margin: 0 auto;
+  max-width: 32rem;
+  color: var(--text-soft);
+  font-weight: 500;
 }
 
 .app-layout {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
-  padding: 0 1rem 2rem;
+  padding: 0 1rem 2.5rem;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .ingredients-panel,
 .recipes-panel {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem;
+  background: var(--card-bg);
+  border: 2px solid var(--lavender);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.ingredients-panel h2,
+.recipes-panel h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pink-deep);
 }
 
 .ingredient-group {
   border: none;
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   padding: 0;
 }
 
+.ingredient-group:last-child {
+  margin-bottom: 0;
+}
+
 .ingredient-group legend {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--lavender-deep);
+  margin-bottom: 0.6rem;
+  padding: 0.15rem 0.7rem;
+  background: rgba(217, 205, 240, 0.35);
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.ingredient-group:last-of-type legend {
+  color: #a87f2e;
+  background: rgba(216, 181, 108, 0.28);
 }
 
 .ingredient-option {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  margin: 0 0.75rem 0.5rem 0;
+  gap: 0.4rem;
+  margin: 0 0.6rem 0.6rem 0;
+  font-size: 0.92rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* cute custom checkbox */
+.ingredient-option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.35em;
+  height: 1.35em;
+  margin: 0;
+  border: 2px solid var(--lavender-deep);
+  border-radius: 7px;
+  background: #fff;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ingredient-option input[type="checkbox"]::after {
+  content: "";
+  width: 0.75em;
+  height: 0.75em;
+  transform: scale(0);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: #fff;
+  clip-path: polygon(14% 44%, 0 63%, 39% 100%, 100% 20%, 81% 4%, 39% 62%);
+}
+
+.ingredient-option input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep));
+  border-color: var(--pink-deep);
+  transform: scale(1.08);
+}
+
+.ingredient-option input[type="checkbox"]:checked::after {
+  transform: scale(1);
+}
+
+.ingredient-option input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 
 #recipe-list {
@@ -58,17 +179,76 @@ header {
 }
 
 .recipe-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem;
+  background: linear-gradient(180deg, #fffdfb 0%, #fff8f4 100%);
+  border: 2px solid var(--pink);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow);
+  animation: pop-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .recipe-card h3 {
-  margin-top: 0;
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.recipe-card-icon {
+  font-size: 1.1rem;
+}
+
+.recipe-ingredients,
+.recipe-steps {
+  margin: 0 0 0.6rem;
+  padding-left: 1.3rem;
+  font-size: 0.92rem;
+}
+
+.recipe-steps {
+  margin-bottom: 0;
+  color: var(--text-soft);
+}
+
+.recipe-ingredients li,
+.recipe-steps li {
+  margin-bottom: 0.2rem;
+}
+
+.recipe-ingredients {
+  color: var(--pink-deep);
+  font-weight: 500;
 }
 
 .empty-state {
-  opacity: 0.7;
+  text-align: center;
+  color: var(--text-soft);
+  font-weight: 500;
+  padding: 1.5rem 0.5rem;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recipe-card {
+    animation: none;
+  }
+  .ingredient-option input[type="checkbox"] {
+    transition: none;
+  }
 }
 
 @media (min-width: 768px) {
@@ -80,7 +260,7 @@ header {
   .ingredients-panel {
     flex: 0 0 320px;
     position: sticky;
-    top: 1rem;
+    top: 1.25rem;
   }
 
   .recipes-panel {

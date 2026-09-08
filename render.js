@@ -38,7 +38,7 @@ export function renderRecipeCard(cocktail) {
   const stepItems = cocktail.steps.map((s) => `<li>${escapeHtml(s)}</li>`).join('');
   return `
     <article class="recipe-card">
-      <h3>${escapeHtml(cocktail.name)}</h3>
+      <h3><span class="recipe-card-icon" aria-hidden="true">🍸</span>${escapeHtml(cocktail.name)}</h3>
       <ul class="recipe-ingredients">${ingredientItems}</ul>
       <ol class="recipe-steps">${stepItems}</ol>
     </article>`;
@@ -46,7 +46,7 @@ export function renderRecipeCard(cocktail) {
 
 export function renderRecipeList(cocktails) {
   if (cocktails.length === 0) {
-    return '<p class="empty-state">作れるカクテルがありません。材料を追加してみてください</p>';
+    return '<p class="empty-state">🍋✨ 作れるカクテルがありません。材料を追加してみてください</p>';
   }
   return cocktails.map(renderRecipeCard).join('');
 }
