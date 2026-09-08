@@ -1,5 +1,3 @@
-const CATEGORY_LABELS = { liquor: 'お酒', mixer: '割り材' };
-
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -8,27 +6,11 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
-export function renderIngredientChecklist(ingredients) {
-  const categories = ['liquor', 'mixer'];
-  return categories
-    .map((category) => {
-      const items = ingredients.filter((i) => i.category === category);
-      const options = items
-        .map(
-          (i) => `
-        <label class="ingredient-option">
-          <input type="checkbox" id="ing-${i.id}" value="${i.id}">
-          ${escapeHtml(i.label)}
-        </label>`
-        )
-        .join('');
-      return `
-      <fieldset class="ingredient-group">
-        <legend>${CATEGORY_LABELS[category]}</legend>
-        ${options}
-      </fieldset>`;
-    })
+export function renderIngredientOptions(items) {
+  const options = items
+    .map((i) => `<option value="${i.id}">${escapeHtml(i.label)}</option>`)
     .join('');
+  return `<option value="">選択なし</option>${options}`;
 }
 
 export function renderRecipeCard(cocktail) {
@@ -44,9 +26,9 @@ export function renderRecipeCard(cocktail) {
     </article>`;
 }
 
-export function renderRecipeList(cocktails) {
+export function renderRecipeList(cocktails, emptyMessage) {
   if (cocktails.length === 0) {
-    return '<p class="empty-state">🍋✨ 作れるカクテルがありません。材料を追加してみてください</p>';
+    return `<p class="empty-state">${escapeHtml(emptyMessage)}</p>`;
   }
   return cocktails.map(renderRecipeCard).join('');
 }

@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { renderIngredientChecklist, renderRecipeCard, renderRecipeList } from '../render.js';
+import { renderIngredientOptions, renderRecipeCard, renderRecipeList } from '../render.js';
 
-const ingredients = [
+const liquors = [
   { id: 'gin', label: 'ジン', category: 'liquor' },
-  { id: 'tonic', label: 'トニックウォーター', category: 'mixer' },
+  { id: 'umeshu', label: '梅酒', category: 'liquor' },
 ];
 
 const cocktail = {
@@ -18,18 +18,15 @@ const cocktail = {
   steps: ['グラスに氷を入れる', 'ジンを注ぐ'],
 };
 
-test('renderIngredientChecklistは各材料のチェックボックスを含む', () => {
-  const html = renderIngredientChecklist(ingredients);
-  assert.match(html, /id="ing-gin"/);
-  assert.match(html, /id="ing-tonic"/);
-  assert.match(html, /ジン/);
-  assert.match(html, /トニックウォーター/);
+test('renderIngredientOptionsは先頭に空欄の選択肢を持つ', () => {
+  const html = renderIngredientOptions(liquors);
+  assert.match(html, /^\s*<option value="">/);
 });
 
-test('renderIngredientChecklistはカテゴリ見出しを含む', () => {
-  const html = renderIngredientChecklist(ingredients);
-  assert.match(html, /お酒/);
-  assert.match(html, /割り材/);
+test('renderIngredientOptionsは各材料のoptionを含む', () => {
+  const html = renderIngredientOptions(liquors);
+  assert.match(html, /<option value="gin">ジン<\/option>/);
+  assert.match(html, /<option value="umeshu">梅酒<\/option>/);
 });
 
 test('renderRecipeCardは名前・材料・手順を含む', () => {
@@ -39,13 +36,13 @@ test('renderRecipeCardは名前・材料・手順を含む', () => {
   assert.match(html, /グラスに氷を入れる/);
 });
 
-test('renderRecipeListは空配列でempty-stateを返す', () => {
-  const html = renderRecipeList([]);
-  assert.match(html, /作れるカクテルがありません/);
+test('renderRecipeListは空配列で指定したメッセージを返す', () => {
+  const html = renderRecipeList([], 'からっぽです');
+  assert.match(html, /からっぽです/);
 });
 
 test('renderRecipeListは各カクテルのカードを連結する', () => {
-  const html = renderRecipeList([cocktail, { ...cocktail, id: 'x', name: '別のカクテル' }]);
+  const html = renderRecipeList([cocktail, { ...cocktail, id: 'x', name: '別の飲み方' }], '空');
   assert.match(html, /ジントニック/);
-  assert.match(html, /別のカクテル/);
+  assert.match(html, /別の飲み方/);
 });

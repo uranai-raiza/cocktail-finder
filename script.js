@@ -1,33 +1,65 @@
 import { INGREDIENTS } from './data/ingredients.js';
-import { filterCocktails } from './filter.js';
-import { renderIngredientChecklist, renderRecipeList } from './render.js';
+import { buildSuggestions } from './suggestions.js';
+import { renderIngredientOptions, renderRecipeList } from './render.js';
 
-const ingredientListEl = document.getElementById('ingredient-list');
-const recipeListEl = document.getElementById('recipe-list');
+const liquorSelects = [
+  document.getElementById('select-liquor-1'),
+  document.getElementById('select-liquor-2'),
+];
+const mixerSelects = [
+  document.getElementById('select-mixer-1'),
+  document.getElementById('select-mixer-2'),
+];
+const casualListEl = document.getElementById('casual-list');
+const formalListEl = document.getElementById('formal-list');
 
-function getCheckedIds() {
-  const checked = ingredientListEl.querySelectorAll('input[type="checkbox"]:checked');
-  return new Set(Array.from(checked).map((el) => el.value));
+const ingredientsById = new Map(INGREDIENTS.map((i) => [i.id, i]));
+
+function getSelectedIds() {
+  const values = [...liquorSelects, ...mixerSelects].map((el) => el.value).filter(Boolean);
+  return [...new Set(values)];
 }
 
 async function main() {
-  ingredientListEl.innerHTML = renderIngredientChecklist(INGREDIENTS);
+  const liquorOptions = renderIngredientOptions(INGREDIENTS.filter((i) => i.category === 'liquor'));
+  const mixerOptions = renderIngredientOptions(INGREDIENTS.filter((i) => i.category === 'mixer'));
+  liquorSelects.forEach((el) => { el.innerHTML = liquorOptions; });
+  mixerSelects.forEach((el) => { el.innerHTML = mixerOptions; });
 
-  let cocktails;
+  let formalCocktails;
+  let casualCombos;
   try {
-    const res = await fetch('./data/cocktails.json');
-    cocktails = await res.json();
+    const [formalRes, casualRes] = await Promise.all([
+      fetch('./data/cocktails.json'),
+      fetch('./data/casualCombos.json'),
+    ]);
+    formalCocktails = await formalRes.json();
+    casualCombos = await casualRes.json();
   } catch {
-    recipeListEl.innerHTML = '<p class="empty-state">データを読み込めませんでした</p>';
+    casualListEl.innerHTML = '<p class="empty-state">データを読み込めませんでした</p>';
+    formalListEl.innerHTML = '';
     return;
   }
 
   function render() {
-    const checkedIds = getCheckedIds();
-    recipeListEl.innerHTML = renderRecipeList(filterCocktails(cocktails, checkedIds));
+    const selectedIds = getSelectedIds();
+    const { casual, formal } = buildSuggestions({
+      selectedIds,
+      formalCocktails,
+      casualCombos,
+      ingredientsById,
+    });
+    casualListEl.innerHTML = renderRecipeList(
+      casual,
+      '🍋✨ お酒・割り材を選ぶと、飲み方の提案がここに出てきます'
+    );
+    formalListEl.innerHTML = renderRecipeList(
+      formal,
+      '材料をもっと選ぶと、作れる本格派カクテルが出てきます'
+    );
   }
 
-  ingredientListEl.addEventListener('change', render);
+  [...liquorSelects, ...mixerSelects].forEach((el) => el.addEventListener('change', render));
   render();
 }
 
