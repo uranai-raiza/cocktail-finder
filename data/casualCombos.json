@@ -1,0 +1,195 @@
+[
+  {
+    "id": "umeshu-soda",
+    "name": "梅酒ソーダ割り",
+    "requiredIngredients": ["umeshu", "soda"],
+    "ingredients": [
+      { "name": "梅酒", "amount": "45ml" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、梅酒を注ぐ",
+      "炭酸水で満たし、軽く1回だけ混ぜる"
+    ]
+  },
+  {
+    "id": "umeshu-tonic",
+    "name": "梅酒トニック割り",
+    "requiredIngredients": ["umeshu", "tonic"],
+    "ingredients": [
+      { "name": "梅酒", "amount": "45ml" },
+      { "name": "トニックウォーター", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、梅酒を注ぐ",
+      "トニックウォーターで満たし、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "shochu-mugicha",
+    "name": "焼酎の麦茶割り",
+    "requiredIngredients": ["shochu", "mugicha"],
+    "ingredients": [
+      { "name": "焼酎", "amount": "60ml目安" },
+      { "name": "麦茶", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、焼酎を注ぐ",
+      "冷えた麦茶で好みの濃さに割って、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "shochu-oolong",
+    "name": "焼酎のウーロン割り",
+    "requiredIngredients": ["shochu", "oolongTea"],
+    "ingredients": [
+      { "name": "焼酎", "amount": "60ml目安" },
+      { "name": "烏龍茶", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、焼酎を注ぐ",
+      "烏龍茶で好みの濃さに割って、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "shochu-soda",
+    "name": "焼酎のソーダ割り(酎ハイ風)",
+    "requiredIngredients": ["shochu", "soda"],
+    "ingredients": [
+      { "name": "焼酎", "amount": "60ml目安" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "レモン(あれば)", "amount": "少々" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、焼酎を注ぐ",
+      "炭酸水で満たし、軽く1回だけ混ぜる",
+      "レモンを軽く搾る(あれば)"
+    ]
+  },
+  {
+    "id": "shochu-water",
+    "name": "焼酎の水割り",
+    "requiredIngredients": ["shochu", "water"],
+    "ingredients": [
+      { "name": "焼酎", "amount": "60ml目安" },
+      { "name": "水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、焼酎を注ぐ",
+      "水で好みの濃さに割って、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "shochu-oyu",
+    "name": "焼酎のお湯割り",
+    "requiredIngredients": ["shochu", "oyu"],
+    "ingredients": [
+      { "name": "焼酎", "amount": "60ml目安" },
+      { "name": "お湯", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに先にお湯を注ぐ",
+      "焼酎を静かに注いで、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "shochu-cola",
+    "name": "焼酎のコーラ割り",
+    "requiredIngredients": ["shochu", "cola"],
+    "ingredients": [
+      { "name": "焼酎", "amount": "45ml" },
+      { "name": "コーラ", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、焼酎を注ぐ",
+      "コーラで満たし、軽く1回だけ混ぜる"
+    ]
+  },
+  {
+    "id": "whisky-water",
+    "name": "ウイスキーの水割り",
+    "requiredIngredients": ["whisky", "water"],
+    "ingredients": [
+      { "name": "ウイスキー", "amount": "30ml" },
+      { "name": "水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウイスキーを注ぐ",
+      "水で好みの濃さに割って、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "whisky-oyu",
+    "name": "ウイスキーのお湯割り",
+    "requiredIngredients": ["whisky", "oyu"],
+    "ingredients": [
+      { "name": "ウイスキー", "amount": "30ml" },
+      { "name": "お湯", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに先にお湯を注ぐ",
+      "ウイスキーを静かに注いで、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "beer-lemon",
+    "name": "ビールの残りにレモンを絞るだけ",
+    "requiredIngredients": ["beer", "lemonLime"],
+    "ingredients": [
+      { "name": "ビール(飲み残しでOK)", "amount": "適量" },
+      { "name": "レモン/ライム果汁", "amount": "少々" }
+    ],
+    "steps": [
+      "気の抜けかけたビールにレモン果汁を少し搾る",
+      "軽く混ぜて飲む。さっぱりして飲みやすくなる"
+    ]
+  },
+  {
+    "id": "beer-gingerAle",
+    "name": "ビールのジンジャーエール割り",
+    "requiredIngredients": ["beer", "gingerAle"],
+    "ingredients": [
+      { "name": "ビール", "amount": "半分程度" },
+      { "name": "ジンジャーエール", "amount": "半分程度" }
+    ],
+    "steps": [
+      "グラスにビールとジンジャーエールを同量くらい注ぐ",
+      "軽く混ぜる。苦味が和らいで飲みやすい"
+    ]
+  },
+  {
+    "id": "sake-soda",
+    "name": "日本酒のソーダ割り",
+    "requiredIngredients": ["sake", "soda"],
+    "ingredients": [
+      { "name": "日本酒", "amount": "60ml目安" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、日本酒を注ぐ",
+      "炭酸水で満たし、軽く1回だけ混ぜる"
+    ]
+  },
+  {
+    "id": "sake-oyu",
+    "name": "日本酒のお湯割り(熱燗風)",
+    "requiredIngredients": ["sake", "oyu"],
+    "ingredients": [
+      { "name": "日本酒", "amount": "80ml目安" },
+      { "name": "お湯", "amount": "少々" }
+    ],
+    "steps": [
+      "グラスや徳利に日本酒を入れる",
+      "お湯を少し加えて、好みの温度・濃さに調整する"
+    ]
+  }
+]
