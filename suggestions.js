@@ -14,8 +14,8 @@ function makeGenericCombo(liquorId, mixerId, ingredientsById) {
     name: `${liquor.label}の${mixer.label}割り`,
     requiredIngredients: [liquorId, mixerId],
     ingredients: [
-      { name: liquor.label, amount: 'お好みの量' },
-      { name: mixer.label, amount: '適量' },
+      { name: liquor.label, amount: 'お好みの量', category: 'liquor' },
+      { name: mixer.label, amount: '適量', category: 'mixer' },
       { name: '氷', amount: '適量' },
     ],
     steps: [

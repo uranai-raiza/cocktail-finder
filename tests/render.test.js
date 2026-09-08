@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   renderIngredientOptions,
+  renderDatalistOptions,
   renderCasualCard,
   renderNearMissCard,
   renderFormalCard,
@@ -60,6 +61,25 @@ test('renderIngredientOptionsは各材料のoptionを含む', () => {
   const html = renderIngredientOptions(liquors);
   assert.match(html, /<option value="gin">ジン<\/option>/);
   assert.match(html, /<option value="umeshu">梅酒<\/option>/);
+});
+
+test('renderDatalistOptionsは各材料をvalue=ラベルのoptionとして出す(空欄なし)', () => {
+  const html = renderDatalistOptions(liquors);
+  assert.match(html, /<option value="ジン">/);
+  assert.match(html, /<option value="梅酒">/);
+  assert.doesNotMatch(html, /value=""/);
+});
+
+test('renderCasualCardは材料itemのcategoryを名前より優先してタグ色分けする(自由入力対応)', () => {
+  const customCard = {
+    id: 'x',
+    name: 'テスト',
+    requiredIngredients: ['a', 'b'],
+    ingredients: [{ name: '自家製シロップ', amount: '適量', category: 'mixer' }],
+    steps: ['s'],
+  };
+  const html = renderCasualCard(customCard);
+  assert.match(html, /<span class="tag tag-mixer">自家製シロップ 適量<\/span>/);
 });
 
 test('renderCasualCardは名前・材料タグ・番号付き手順を含む', () => {

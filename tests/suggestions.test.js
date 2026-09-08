@@ -56,6 +56,37 @@ test('formal/casualどちらにも無い組み合わせは自動生成される'
   assert.deepEqual(result.casual[0].requiredIngredients, ['gin', 'mugicha']);
 });
 
+test('自動生成された組み合わせの材料にはcategoryが付く(表示のタグ色分け用)', () => {
+  const result = buildSuggestions({
+    selectedIds: ['gin', 'mugicha'],
+    formalCocktails,
+    casualCombos,
+    ingredientsById,
+  });
+  const [combo] = result.casual;
+  const liquorItem = combo.ingredients.find((i) => i.name === 'ジン');
+  const mixerItem = combo.ingredients.find((i) => i.name === '麦茶');
+  assert.equal(liquorItem.category, 'liquor');
+  assert.equal(mixerItem.category, 'mixer');
+});
+
+test('ingredientsByIdに無い自由入力idでも自動生成が動く(カスタム材料対応)', () => {
+  const customIngredientsById = new Map([
+    ...ingredientsById,
+    ['自家製シロップ', { id: '自家製シロップ', label: '自家製シロップ', category: 'mixer' }],
+  ]);
+  const result = buildSuggestions({
+    selectedIds: ['gin', '自家製シロップ'],
+    formalCocktails,
+    casualCombos,
+    ingredientsById: customIngredientsById,
+  });
+  assert.equal(result.casual.length, 1);
+  assert.equal(result.casual[0].name, 'ジンの自家製シロップ割り');
+  const mixerItem = result.casual[0].ingredients.find((i) => i.name === '自家製シロップ');
+  assert.equal(mixerItem.category, 'mixer');
+});
+
 test('formalで既にカバーされているペアは自動生成しない(ジン+トニックの重複防止)', () => {
   const result = buildSuggestions({
     selectedIds: ['gin', 'tonic'],

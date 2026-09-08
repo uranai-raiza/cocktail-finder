@@ -18,9 +18,16 @@ export function renderIngredientOptions(items) {
   return `<option value="">選択なし</option>${options}`;
 }
 
+export function renderDatalistOptions(items) {
+  return items.map((i) => `<option value="${escapeHtml(i.label)}">`).join('');
+}
+
+function ingredientCategory(item) {
+  return item.category ?? LABEL_TO_CATEGORY.get(item.name);
+}
+
 function ingredientDisplay(item) {
-  const category = LABEL_TO_CATEGORY.get(item.name);
-  return category ? `${item.name} ${item.amount}` : item.name;
+  return ingredientCategory(item) ? `${item.name} ${item.amount}` : item.name;
 }
 
 function renderTag(text, variant) {
@@ -30,7 +37,7 @@ function renderTag(text, variant) {
 export function renderCasualCard(cocktail) {
   const tags = cocktail.ingredients
     .map((i) => {
-      const category = LABEL_TO_CATEGORY.get(i.name);
+      const category = ingredientCategory(i);
       const variant = category === 'liquor' ? 'liquor' : category === 'mixer' ? 'mixer' : 'neutral';
       return renderTag(ingredientDisplay(i), variant);
     })
