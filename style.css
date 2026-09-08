@@ -1,0 +1,93 @@
+:root {
+  color-scheme: light dark;
+  --gap: 1rem;
+  --border: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  padding: 1rem;
+  text-align: center;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: 0 1rem 2rem;
+}
+
+.ingredients-panel,
+.recipes-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.ingredient-group {
+  border: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.ingredient-group legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.ingredient-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 0.75rem 0.5rem 0;
+}
+
+#recipe-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+.recipe-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.recipe-card h3 {
+  margin-top: 0;
+}
+
+.empty-state {
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .app-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .ingredients-panel {
+    flex: 0 0 320px;
+    position: sticky;
+    top: 1rem;
+  }
+
+  .recipes-panel {
+    flex: 1;
+  }
+
+  #recipe-list {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}

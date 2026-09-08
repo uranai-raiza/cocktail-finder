@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家飲みカクテルファインダー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>家飲みカクテルファインダー</h1>
+    <p>手持ちのお酒・割り材にチェックを入れると、今すぐ作れるカクテルが分かります。</p>
+  </header>
+  <main class="app-layout">
+    <section class="ingredients-panel" aria-label="材料チェックリスト">
+      <h2>持っている材料</h2>
+      <div id="ingredient-list"></div>
+    </section>
+    <section class="recipes-panel" aria-label="作れるカクテル一覧">
+      <h2>作れるカクテル</h2>
+      <div id="recipe-list"></div>
+    </section>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
