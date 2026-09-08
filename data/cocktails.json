@@ -1,0 +1,410 @@
+[
+  {
+    "id": "gin-tonic",
+    "name": "ジントニック",
+    "base": "gin",
+    "requiredIngredients": ["gin", "tonic"],
+    "ingredients": [
+      { "name": "ジン", "amount": "45ml" },
+      { "name": "トニックウォーター", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷をたっぷり入れる",
+      "ジンを注ぐ",
+      "トニックウォーターで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "gin-buck",
+    "name": "ジンバック",
+    "base": "gin",
+    "requiredIngredients": ["gin", "gingerAle", "lemonLime"],
+    "ingredients": [
+      { "name": "ジン", "amount": "45ml" },
+      { "name": "ジンジャーエール", "amount": "適量" },
+      { "name": "レモン/ライム果汁", "amount": "5ml" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷、ジン、レモン/ライム果汁を入れる",
+      "ジンジャーエールで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "gin-rickey",
+    "name": "ジンリッキー",
+    "base": "gin",
+    "requiredIngredients": ["gin", "soda", "lemonLime"],
+    "ingredients": [
+      { "name": "ジン", "amount": "45ml" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "レモン/ライム果汁", "amount": "15ml" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷とレモン/ライム果汁、ジンを入れる",
+      "炭酸水で満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "orange-blossom",
+    "name": "オレンジブロッサム",
+    "base": "gin",
+    "requiredIngredients": ["gin", "orangeJuice"],
+    "ingredients": [
+      { "name": "ジン", "amount": "30ml" },
+      { "name": "オレンジジュース", "amount": "45ml" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れる",
+      "ジンとオレンジジュースを注ぎ、よくステアする"
+    ]
+  },
+  {
+    "id": "gin-fizz",
+    "name": "ジンフィズ",
+    "base": "gin",
+    "requiredIngredients": ["gin", "lemonLime", "soda"],
+    "ingredients": [
+      { "name": "ジン", "amount": "45ml" },
+      { "name": "レモン果汁", "amount": "20ml" },
+      { "name": "砂糖", "amount": "小さじ1" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "シェイカーにジン・レモン果汁・砂糖・氷を入れてよく振る",
+      "氷を入れたグラスに注ぎ、炭酸水で満たす"
+    ]
+  },
+  {
+    "id": "vodka-tonic",
+    "name": "ウォッカトニック",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "tonic"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "トニックウォーター", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷をたっぷり入れる",
+      "ウォッカを注ぐ",
+      "トニックウォーターで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "screwdriver",
+    "name": "スクリュードライバー",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "orangeJuice"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "オレンジジュース", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウォッカを注ぐ",
+      "オレンジジュースで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "salty-dog",
+    "name": "ソルティドッグ",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "grapefruitJuice"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "グレープフルーツジュース", "amount": "適量" },
+      { "name": "塩(あれば、グラスの縁に)", "amount": "少々" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスの縁に塩をつける(あれば)",
+      "氷を入れ、ウォッカとグレープフルーツジュースを注いでステアする"
+    ]
+  },
+  {
+    "id": "vodka-soda",
+    "name": "ウォッカソーダ",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "soda"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウォッカを注ぐ",
+      "炭酸水で満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "moscow-mule",
+    "name": "モスコミュール",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "gingerAle", "lemonLime"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "レモン/ライム果汁", "amount": "15ml" },
+      { "name": "ジンジャーエール", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷、ウォッカ、レモン/ライム果汁を入れる",
+      "ジンジャーエールで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "vodka-pine",
+    "name": "ウォッカパイン",
+    "base": "vodka",
+    "requiredIngredients": ["vodka", "pineappleJuice"],
+    "ingredients": [
+      { "name": "ウォッカ", "amount": "45ml" },
+      { "name": "パイナップルジュース", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウォッカを注ぐ",
+      "パイナップルジュースで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "cuba-libre",
+    "name": "キューバリブレ",
+    "base": "rum",
+    "requiredIngredients": ["rum", "cola", "lemonLime"],
+    "ingredients": [
+      { "name": "ラム", "amount": "45ml" },
+      { "name": "レモン/ライム果汁", "amount": "10ml" },
+      { "name": "コーラ", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷、ラム、レモン/ライム果汁を入れる",
+      "コーラで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "rum-tonic",
+    "name": "ラムトニック",
+    "base": "rum",
+    "requiredIngredients": ["rum", "tonic"],
+    "ingredients": [
+      { "name": "ラム", "amount": "45ml" },
+      { "name": "トニックウォーター", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ラムを注ぐ",
+      "トニックウォーターで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "dark-and-stormy",
+    "name": "ダークアンドストーミー",
+    "base": "rum",
+    "requiredIngredients": ["rum", "gingerAle", "lemonLime"],
+    "ingredients": [
+      { "name": "ラム", "amount": "45ml" },
+      { "name": "レモン/ライム果汁", "amount": "10ml" },
+      { "name": "ジンジャーエール", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷、ラム、レモン/ライム果汁を入れる",
+      "ジンジャーエールで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "rum-pine",
+    "name": "ラムパイン",
+    "base": "rum",
+    "requiredIngredients": ["rum", "pineappleJuice"],
+    "ingredients": [
+      { "name": "ラム", "amount": "45ml" },
+      { "name": "パイナップルジュース", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ラムを注ぐ",
+      "パイナップルジュースで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "tequila-sunrise",
+    "name": "テキーラサンライズ",
+    "base": "tequila",
+    "requiredIngredients": ["tequila", "orangeJuice", "grenadine"],
+    "ingredients": [
+      { "name": "テキーラ", "amount": "45ml" },
+      { "name": "オレンジジュース", "amount": "適量" },
+      { "name": "グレナデンシロップ", "amount": "10ml" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、テキーラとオレンジジュースを注いでステアする",
+      "グレナデンシロップをグラスの中心に静かに沈める"
+    ]
+  },
+  {
+    "id": "tequila-tonic",
+    "name": "テキーラトニック",
+    "base": "tequila",
+    "requiredIngredients": ["tequila", "tonic"],
+    "ingredients": [
+      { "name": "テキーラ", "amount": "45ml" },
+      { "name": "トニックウォーター", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、テキーラを注ぐ",
+      "トニックウォーターで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "paloma",
+    "name": "パロマ",
+    "base": "tequila",
+    "requiredIngredients": ["tequila", "grapefruitJuice", "soda", "lemonLime"],
+    "ingredients": [
+      { "name": "テキーラ", "amount": "45ml" },
+      { "name": "グレープフルーツジュース", "amount": "60ml" },
+      { "name": "レモン/ライム果汁", "amount": "10ml" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "塩(あれば、グラスの縁に)", "amount": "少々" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷、テキーラ、グレープフルーツジュース、レモン/ライム果汁を入れてステアする",
+      "炭酸水で満たし、軽く混ぜる"
+    ]
+  },
+  {
+    "id": "tequila-soda",
+    "name": "テキーラソーダ",
+    "base": "tequila",
+    "requiredIngredients": ["tequila", "soda"],
+    "ingredients": [
+      { "name": "テキーラ", "amount": "45ml" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、テキーラを注ぐ",
+      "炭酸水で満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "highball",
+    "name": "ハイボール",
+    "base": "whisky",
+    "requiredIngredients": ["whisky", "soda"],
+    "ingredients": [
+      { "name": "ウイスキー", "amount": "30ml" },
+      { "name": "炭酸水", "amount": "90ml目安" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷をたっぷり入れる",
+      "ウイスキーを注ぎ、軽く混ぜて冷やす",
+      "よく冷えた炭酸水を静かに注ぎ、軽く1回だけステアする"
+    ]
+  },
+  {
+    "id": "whisky-coke",
+    "name": "ウイスキーコーク",
+    "base": "whisky",
+    "requiredIngredients": ["whisky", "cola"],
+    "ingredients": [
+      { "name": "ウイスキー", "amount": "30ml" },
+      { "name": "コーラ", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウイスキーを注ぐ",
+      "コーラで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "whisky-ginger",
+    "name": "ウイスキージンジャー",
+    "base": "whisky",
+    "requiredIngredients": ["whisky", "gingerAle"],
+    "ingredients": [
+      { "name": "ウイスキー", "amount": "30ml" },
+      { "name": "ジンジャーエール", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、ウイスキーを注ぐ",
+      "ジンジャーエールで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "campari-soda",
+    "name": "カンパリソーダ",
+    "base": "campari",
+    "requiredIngredients": ["campari", "soda"],
+    "ingredients": [
+      { "name": "カンパリ", "amount": "45ml" },
+      { "name": "炭酸水", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、カンパリを注ぐ",
+      "炭酸水で満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "campari-orange",
+    "name": "カンパリオレンジ",
+    "base": "campari",
+    "requiredIngredients": ["campari", "orangeJuice"],
+    "ingredients": [
+      { "name": "カンパリ", "amount": "45ml" },
+      { "name": "オレンジジュース", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、カンパリを注ぐ",
+      "オレンジジュースで満たし、軽くステアする"
+    ]
+  },
+  {
+    "id": "kahlua-milk",
+    "name": "カルーアミルク",
+    "base": "coffeeLiqueur",
+    "requiredIngredients": ["coffeeLiqueur", "milk"],
+    "ingredients": [
+      { "name": "コーヒーリキュール", "amount": "45ml" },
+      { "name": "ミルク", "amount": "適量" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスに氷を入れ、コーヒーリキュールを注ぐ",
+      "ミルクで満たし、よくステアする"
+    ]
+  },
+  {
+    "id": "margarita",
+    "name": "マルガリータ",
+    "base": "tequila",
+    "requiredIngredients": ["tequila", "tripleSec", "lemonLime"],
+    "ingredients": [
+      { "name": "テキーラ", "amount": "40ml" },
+      { "name": "トリプルセック", "amount": "15ml" },
+      { "name": "レモン/ライム果汁", "amount": "15ml" },
+      { "name": "塩(あれば、グラスの縁に)", "amount": "少々" },
+      { "name": "氷", "amount": "適量" }
+    ],
+    "steps": [
+      "グラスの縁を果汁で湿らせ、塩をつける(あれば)",
+      "シェイカーにテキーラ・トリプルセック・レモン/ライム果汁・氷を入れてよく振る",
+      "グラスに注ぐ"
+    ]
+  }
+]
