@@ -179,6 +179,15 @@ header p {
   outline-offset: 2px;
 }
 
+/* The <select>'s own color/background (white text, translucent fill) is
+   for the closed box only. The native dropdown popup renders each
+   <option> against an opaque white panel, so without this override the
+   inherited white text is invisible on every unselected row. */
+.ingredient-block select option {
+  color: var(--text);
+  background: #fff;
+}
+
 /* Section label / divider */
 .section-label {
   display: flex;
