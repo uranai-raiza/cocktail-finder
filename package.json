@@ -1,6 +1,7 @@
 {
-  "name": "cocktail-finder",
+  "name": "uchinomi-mix",
   "version": "1.0.0",
+  "description": "宅飲みミックス: 持っているお酒・割り材から、気軽な飲み方〜本格派カクテルまで幅広く提案する静的Webアプリ",
   "private": true,
   "type": "module",
   "scripts": {

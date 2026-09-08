@@ -42,6 +42,9 @@ async function main() {
   }
 
   function render() {
+    [...liquorSelects, ...mixerSelects].forEach((el) => {
+      el.classList.toggle('has-value', el.value !== '');
+    });
     const selectedIds = getSelectedIds();
     const { casual, formal } = buildSuggestions({
       selectedIds,

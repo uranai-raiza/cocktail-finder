@@ -95,17 +95,15 @@ header p {
   color: var(--pink-deep);
 }
 
-.ingredient-group {
-  border: none;
+.select-group {
   margin: 0 0 1.1rem;
-  padding: 0;
 }
 
-.ingredient-group:last-child {
+.select-group-mixer {
   margin-bottom: 0;
 }
 
-.ingredient-group legend {
+.select-group-label {
   font-weight: 700;
   color: var(--lavender-deep);
   margin-bottom: 0.6rem;
@@ -116,66 +114,67 @@ header p {
   font-size: 0.85rem;
 }
 
-.ingredient-group:last-of-type legend {
+.select-group-mixer .select-group-label {
   color: #a87f2e;
   background: rgba(216, 181, 108, 0.28);
 }
 
-.ingredient-option {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 0 0.6rem 0.6rem 0;
-  font-size: 0.92rem;
-  cursor: pointer;
-  user-select: none;
+.select-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
 }
 
-/* cute custom checkbox */
-.ingredient-option input[type="checkbox"] {
+/* cute custom select */
+.select-row select {
   appearance: none;
   -webkit-appearance: none;
-  width: 1.35em;
-  height: 1.35em;
-  margin: 0;
+  flex: 1 1 130px;
+  min-width: 0;
+  padding: 0.55rem 1.9rem 0.55rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
   border: 2px solid var(--lavender-deep);
-  border-radius: 7px;
-  background: #fff;
-  display: inline-grid;
-  place-content: center;
+  border-radius: 999px;
+  background:
+    #fff
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='7'><path d='M0 0 L5 7 L10 0 Z' fill='%23b39ddb'/></svg>")
+    no-repeat right 0.85rem center;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ingredient-option input[type="checkbox"]::after {
-  content: "";
-  width: 0.75em;
-  height: 0.75em;
-  transform: scale(0);
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: #fff;
-  clip-path: polygon(14% 44%, 0 63%, 39% 100%, 100% 20%, 81% 4%, 39% 62%);
+.select-group-mixer .select-row select {
+  border-color: #a87f2e;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='7'><path d='M0 0 L5 7 L10 0 Z' fill='%23a87f2e'/></svg>");
 }
 
-.ingredient-option input[type="checkbox"]:checked {
-  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep));
+.select-row select:focus-visible {
+  outline: none;
   border-color: var(--pink-deep);
-  transform: scale(1.08);
+  box-shadow: 0 0 0 3px rgba(224, 143, 162, 0.3);
 }
 
-.ingredient-option input[type="checkbox"]:checked::after {
-  transform: scale(1);
+.select-row select.has-value {
+  border-color: var(--pink-deep);
+  background-color: #fff6f8;
 }
 
-.ingredient-option input[type="checkbox"]:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-#recipe-list {
+#casual-list,
+#formal-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--gap);
+}
+
+.formal-heading {
+  margin-top: 1.6rem !important;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--lavender);
+  color: var(--lavender-deep) !important;
+  font-size: 0.95rem !important;
 }
 
 .recipe-card {
@@ -186,6 +185,11 @@ header p {
   padding: 1.1rem 1.2rem;
   box-shadow: var(--shadow);
   animation: pop-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#formal-list .recipe-card {
+  border-color: var(--lavender);
+  border-top-color: var(--lavender-deep);
 }
 
 .recipe-card h3 {
@@ -246,7 +250,7 @@ header p {
   .recipe-card {
     animation: none;
   }
-  .ingredient-option input[type="checkbox"] {
+  .select-row select {
     transition: none;
   }
 }
@@ -267,7 +271,8 @@ header p {
     flex: 1;
   }
 
-  #recipe-list {
+  #casual-list,
+  #formal-list {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 }
