@@ -98,3 +98,59 @@ test('複数選択時は全ての酒×割り材の組み合わせぶん生成さ
   const names = result.casual.map((c) => c.name).sort();
   assert.deepEqual(names, ['ジンの麦茶割り', '梅酒の麦茶割り']);
 });
+
+test('1つだけ材料が足りない組み合わせはnearMissに入り、不足材料idを持つ', () => {
+  const result = buildSuggestions({
+    selectedIds: ['umeshu'],
+    formalCocktails,
+    casualCombos,
+    ingredientsById,
+  });
+  assert.equal(result.nearMiss.length, 1);
+  assert.equal(result.nearMiss[0].id, 'umeshu-soda');
+  assert.equal(result.nearMiss[0].missingIngredientId, 'soda');
+});
+
+test('formal側もnearMiss対象になる', () => {
+  const result = buildSuggestions({
+    selectedIds: ['gin'],
+    formalCocktails,
+    casualCombos,
+    ingredientsById,
+  });
+  assert.equal(result.nearMiss.length, 1);
+  assert.equal(result.nearMiss[0].id, 'gin-tonic');
+  assert.equal(result.nearMiss[0].missingIngredientId, 'tonic');
+});
+
+test('何も選択していなければnearMissは発生しない', () => {
+  const result = buildSuggestions({ selectedIds: [], formalCocktails, casualCombos, ingredientsById });
+  assert.deepEqual(result.nearMiss, []);
+});
+
+test('既に完全一致しているものはnearMissに重複して入らない', () => {
+  const result = buildSuggestions({
+    selectedIds: ['umeshu', 'soda'],
+    formalCocktails,
+    casualCombos,
+    ingredientsById,
+  });
+  assert.deepEqual(result.nearMiss, []);
+});
+
+test('2つ以上材料が足りない組み合わせはnearMissに入らない', () => {
+  const paloma = {
+    id: 'paloma',
+    name: 'パロマ',
+    requiredIngredients: ['tequila', 'grapefruitJuice', 'soda', 'lemonLime'],
+    ingredients: [],
+    steps: ['a'],
+  };
+  const result = buildSuggestions({
+    selectedIds: ['tequila'],
+    formalCocktails: [...formalCocktails, paloma],
+    casualCombos,
+    ingredientsById,
+  });
+  assert.ok(!result.nearMiss.some((c) => c.id === 'paloma'));
+});

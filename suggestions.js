@@ -50,5 +50,16 @@ export function buildSuggestions({ selectedIds, formalCocktails, casualCombos, i
     }
   }
 
-  return { casual: [...casualCurated, ...generic], formal };
+  const matchedIds = new Set([...formal, ...casualCurated].map((c) => c.id));
+  const nearMiss = [];
+  for (const entry of [...casualCombos, ...formalCocktails]) {
+    if (matchedIds.has(entry.id)) continue;
+    const missing = entry.requiredIngredients.filter((id) => !checkedSet.has(id));
+    const present = entry.requiredIngredients.filter((id) => checkedSet.has(id));
+    if (missing.length === 1 && present.length >= 1) {
+      nearMiss.push({ ...entry, missingIngredientId: missing[0] });
+    }
+  }
+
+  return { casual: [...casualCurated, ...generic], nearMiss, formal };
 }
