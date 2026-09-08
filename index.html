@@ -29,7 +29,7 @@
         <span class="ingredient-block-label">お酒</span>
         <div class="select-col">
           <select id="select-liquor-1" aria-label="お酒1"></select>
-          <select id="select-liquor-2" aria-label="お酒2"></select>
+          <input type="text" id="input-liquor-2" list="liquor-datalist" aria-label="お酒2(自由入力)" placeholder="その他(自由入力)" autocomplete="off">
         </div>
       </div>
       <div class="ingredient-block ingredient-block-mixer">
@@ -37,9 +37,11 @@
         <span class="ingredient-block-label">割り材</span>
         <div class="select-col">
           <select id="select-mixer-1" aria-label="割り材1"></select>
-          <select id="select-mixer-2" aria-label="割り材2"></select>
+          <input type="text" id="input-mixer-2" list="mixer-datalist" aria-label="割り材2(自由入力)" placeholder="その他(自由入力)" autocomplete="off">
         </div>
       </div>
+      <datalist id="liquor-datalist"></datalist>
+      <datalist id="mixer-datalist"></datalist>
     </section>
     <section class="recipes-panel" aria-label="提案一覧">
       <div class="section-label">

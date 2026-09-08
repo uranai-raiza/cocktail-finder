@@ -4,11 +4,18 @@ import { readFileSync } from 'node:fs';
 
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 
-test('お酒2つ・割り材2つのプルダウンを持つ', () => {
+test('1つ目のお酒・割り材はプルダウンのまま', () => {
   assert.match(html, /<select[^>]*id="select-liquor-1"/);
-  assert.match(html, /<select[^>]*id="select-liquor-2"/);
   assert.match(html, /<select[^>]*id="select-mixer-1"/);
-  assert.match(html, /<select[^>]*id="select-mixer-2"/);
+});
+
+test('2つ目のお酒・割り材は自由入力(datalist付きtext input)に変わっている', () => {
+  assert.doesNotMatch(html, /<select[^>]*id="select-liquor-2"/);
+  assert.doesNotMatch(html, /<select[^>]*id="select-mixer-2"/);
+  assert.match(html, /<input type="text" id="input-liquor-2" list="liquor-datalist"/);
+  assert.match(html, /<input type="text" id="input-mixer-2" list="mixer-datalist"/);
+  assert.match(html, /<datalist id="liquor-datalist">/);
+  assert.match(html, /<datalist id="mixer-datalist">/);
 });
 
 test('気軽な提案と本格派カクテルの入れ物を持つ', () => {
