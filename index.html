@@ -7,37 +7,51 @@
   <meta name="description" content="手持ちのお酒・割り材を選ぶと、気軽な家飲みの組み合わせから本格派カクテルまで幅広く提案してくれるツール">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <p class="header-icons" aria-hidden="true">🍸 🍋 🧊</p>
-    <h1>宅飲みミックス</h1>
-    <p>持っているお酒・割り材を選ぶと、今すぐできる飲み方を提案します♡</p>
+    <div>
+      <h1>宅飲みミックス</h1>
+      <p>今夜の一杯、これで決まり♡</p>
+    </div>
+    <div class="header-badge" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 4H20L13 12.5V19H16V21H8V19H11V12.5L4 4Z" fill="#fff" fill-opacity="0.9"/>
+      </svg>
+    </div>
   </header>
   <main class="app-layout">
     <section class="ingredients-panel" aria-label="材料選択">
-      <h2>🧊 持っている材料</h2>
-      <div class="select-group">
-        <span class="select-group-label">お酒</span>
-        <div class="select-row">
+      <div class="ingredient-block ingredient-block-liquor">
+        <div class="ingredient-badge" aria-hidden="true">🍶</div>
+        <span class="ingredient-block-label">お酒</span>
+        <div class="select-col">
           <select id="select-liquor-1" aria-label="お酒1"></select>
           <select id="select-liquor-2" aria-label="お酒2"></select>
         </div>
       </div>
-      <div class="select-group select-group-mixer">
-        <span class="select-group-label">割り材</span>
-        <div class="select-row">
+      <div class="ingredient-block ingredient-block-mixer">
+        <div class="ingredient-badge" aria-hidden="true">🍵</div>
+        <span class="ingredient-block-label">割り材</span>
+        <div class="select-col">
           <select id="select-mixer-1" aria-label="割り材1"></select>
           <select id="select-mixer-2" aria-label="割り材2"></select>
         </div>
       </div>
     </section>
     <section class="recipes-panel" aria-label="提案一覧">
-      <h2>🍹 こんな飲み方もできるよ</h2>
+      <div class="section-label">
+        <span aria-hidden="true">✨</span>
+        <h2>こんな飲み方もできるよ</h2>
+      </div>
       <div id="casual-list"></div>
-      <h2 class="formal-heading">🍸 本格派向けカクテル</h2>
+      <div class="section-divider">
+        <span class="divider-line" aria-hidden="true"></span>
+        <span class="divider-label">本格派向けカクテル</span>
+        <span class="divider-line" aria-hidden="true"></span>
+      </div>
       <div id="formal-list"></div>
     </section>
   </main>

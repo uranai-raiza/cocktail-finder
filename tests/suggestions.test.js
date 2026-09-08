@@ -138,6 +138,23 @@ test('既に完全一致しているものはnearMissに重複して入らない
   assert.deepEqual(result.nearMiss, []);
 });
 
+test('nearMissは最大3件までに絞られる', () => {
+  const manyMixerCombos = [
+    { id: 'a-soda', name: 'Aソーダ割り', requiredIngredients: ['a', 'soda'], ingredients: [], steps: ['x'] },
+    { id: 'b-soda', name: 'Bソーダ割り', requiredIngredients: ['b', 'soda'], ingredients: [], steps: ['x'] },
+    { id: 'c-soda', name: 'Cソーダ割り', requiredIngredients: ['c', 'soda'], ingredients: [], steps: ['x'] },
+    { id: 'd-soda', name: 'Dソーダ割り', requiredIngredients: ['d', 'soda'], ingredients: [], steps: ['x'] },
+    { id: 'e-soda', name: 'Eソーダ割り', requiredIngredients: ['e', 'soda'], ingredients: [], steps: ['x'] },
+  ];
+  const result = buildSuggestions({
+    selectedIds: ['soda'],
+    formalCocktails: [],
+    casualCombos: manyMixerCombos,
+    ingredientsById,
+  });
+  assert.equal(result.nearMiss.length, 3);
+});
+
 test('2つ以上材料が足りない組み合わせはnearMissに入らない', () => {
   const paloma = {
     id: 'paloma',

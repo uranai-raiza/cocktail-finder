@@ -1,5 +1,7 @@
 import { filterCocktails } from './filter.js';
 
+const NEAR_MISS_LIMIT = 3;
+
 function pairKey(ids) {
   return [...ids].sort().join('|');
 }
@@ -61,5 +63,5 @@ export function buildSuggestions({ selectedIds, formalCocktails, casualCombos, i
     }
   }
 
-  return { casual: [...casualCurated, ...generic], nearMiss, formal };
+  return { casual: [...casualCurated, ...generic], nearMiss: nearMiss.slice(0, NEAR_MISS_LIMIT), formal };
 }

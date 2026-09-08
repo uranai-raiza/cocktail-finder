@@ -1,6 +1,6 @@
 import { INGREDIENTS } from './data/ingredients.js';
 import { buildSuggestions } from './suggestions.js';
-import { renderIngredientOptions, renderRecipeList } from './render.js';
+import { renderIngredientOptions, renderCasualSection, renderFormalSection } from './render.js';
 
 const liquorSelects = [
   document.getElementById('select-liquor-1'),
@@ -46,17 +46,18 @@ async function main() {
       el.classList.toggle('has-value', el.value !== '');
     });
     const selectedIds = getSelectedIds();
-    const { casual, formal } = buildSuggestions({
+    const { casual, nearMiss, formal } = buildSuggestions({
       selectedIds,
       formalCocktails,
       casualCombos,
       ingredientsById,
     });
-    casualListEl.innerHTML = renderRecipeList(
+    casualListEl.innerHTML = renderCasualSection(
       casual,
-      '🍋✨ お酒・割り材を選ぶと、飲み方の提案がここに出てきます'
+      nearMiss,
+      'お酒・割り材を選ぶと、飲み方の提案がここに出てきます'
     );
-    formalListEl.innerHTML = renderRecipeList(
+    formalListEl.innerHTML = renderFormalSection(
       formal,
       '材料をもっと選ぶと、作れる本格派カクテルが出てきます'
     );
